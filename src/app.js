@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const helmet = require("helmet");
@@ -17,11 +18,10 @@ app.use(compression())
 // init db
 require('./dbs/init.mongodb')
 const {checkOverload} = require('./helpers/check.connect')
-checkOverload()
+// checkOverload()
 // init routes
 app.get('/',(req,res,next)=>{
-    const strCompress = 'Hello Kidman'
-
+    // const strCompress = 'Hello Kidman'
     return res.status(200).json({
         message: 'Welcome Kidman!',
         // metadata: strCompress.repeat(100000)
